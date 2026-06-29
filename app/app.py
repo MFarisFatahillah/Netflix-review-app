@@ -9,6 +9,8 @@ import seaborn as sns
 from wordcloud import WordCloud
 from collections import Counter
 
+from typing import Tuple
+
 # ─────────────────────────────────────────────
 #  PAGE CONFIG
 # ─────────────────────────────────────────────
@@ -323,7 +325,7 @@ def load_data():
 
 
 @st.cache_resource
-def load_model():
+def load_model() -> Tuple[]:
     model = joblib.load(MODEL_PATH)
     tfidf = joblib.load(TFIDF_PATH)
     return model, tfidf
@@ -657,7 +659,7 @@ elif "Prediksi" in menu:
 
     st.markdown("""
     <div class="page-header">
-        <h1>🤖 Prediksi Sentimen</h1>
+        <h1>🤖 Prediksi Sentimen for Netflix</h1>
         <p>Masukkan ulasan untuk diklasifikasikan oleh model</p>
     </div>
     """, unsafe_allow_html=True)
